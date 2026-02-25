@@ -1,6 +1,6 @@
 process ALIGN_GENOME {
     tag "$meta.id - Align reads to viral genomes"
-    publishDir "results/align", mode: 'copy'
+    publishDir "${params.outdir}/align", mode: 'copy'
 
     conda "bioconda::bowtie2=2.5.4"
     container "quay.io/biocontainers/bowtie2:2.5.1--py39h5f740d0_2"

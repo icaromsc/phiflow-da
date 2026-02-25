@@ -1,6 +1,6 @@
 process FILTER_READS {
     tag "Filter low complexity reads"
-    publishDir "results/filtered", mode: 'copy'
+    publishDir "${params.outdir}/filtered", mode: 'copy'
 
     conda "bioconda::fastp=0.23.4"
     container "quay.io/biocontainers/fastp:0.23.4--h5f740d0_3"

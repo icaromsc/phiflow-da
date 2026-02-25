@@ -2,7 +2,7 @@ process DOWNLOAD_GENOMES {
 
     tag "$meta.id"
     label 'low'
-    publishDir "results/genomes", mode: 'copy'
+    publishDir "${params.outdir}/genomes", mode: 'copy'
     conda "envs/ncbigenomedownload.yml"
     container 'containers/phiflow.sif'
 
@@ -24,6 +24,7 @@ process DOWNLOAD_GENOMES {
         --assembly-level complete \\
         --formats fasta,gff \\
         --flat-output \\
+        --no-cache \\
         --output-folder genomes \\
         ${taxid_opt} \\
         ${group}

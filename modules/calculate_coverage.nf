@@ -1,7 +1,7 @@
 process BREADTH_COVERAGE {
     
     tag "Calculate breadth of coverage"
-    publishDir "results/summary", mode: 'copy'
+    publishDir "${params.outdir}/summary", mode: 'copy'
     conda "envs/breadth_coverage.yml"
     
     input:

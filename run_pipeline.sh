@@ -1,6 +1,5 @@
 nextflow run main.nf \
-  --group viral \
-  --taxid_file human-viral-genomes.txt \
-  --outdir results \
-  -profile conda \
-  -resume \
+    --taxid_file assets/human-viral-genomes.txt \
+    --reads_dir /home/icastro/workspace/phiflow-da/tests/data \
+    --outdir final_results \
+    -profile conda
