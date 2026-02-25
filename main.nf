@@ -9,12 +9,24 @@ include { ALIGN_GENOME         } from './modules/direct_align_reads.nf'
 include { GENERATE_COVERAGES   } from './modules/generate_coverages.nf'
 include { BREADTH_COVERAGE     } from './modules/calculate_coverage.nf'
 
+<<<<<<< HEAD
 // 2. Parameters (Defaults are handled in nextflow.config, these are fallback)
 params.taxid_file       = params.taxid_file ?: null
 params.outdir           = params.outdir     ?: "./results"
 params.group            = params.group      ?: "viral"
 params.index_name       = params.index_name ?: "viral_index"
 params.reads_dir        = params.reads_dir  ?: null
+=======
+
+// Parâmetros
+params.taxid_file = params.taxid_file ?: null
+params.outdir     = params.outdir     ?: "./results"
+params.group      = params.group      ?: "viral"
+params.index_name = params.index_name ?: "viral_index"
+params.index_dir  = "${params.outdir}/index/${params.index_name}"
+//params.reads      = params.reads      ?: "/home/icastro/workspace/mock/plant_viral_mock.fastq"
+params.reads_dir = params.reads_dir ?: null
+>>>>>>> d7b76a8df65a8d7cb5d83e873ecd4eb2d67a6b24
 params.breadth_threshold = params.breadth_threshold ?: 0.1
 
 // Helper path for logic
@@ -81,5 +93,21 @@ def createMixedReadsChannel(reads_dir_path) {
             [ [id: file.simpleName, single_end: true], file ] 
         }
 
+<<<<<<< HEAD
     return ch_pe.mix(ch_se)
 }
+=======
+    return Channel.from(items)
+}
+
+
+
+
+    
+    // Check if genome index already exists
+   // if ( file(params.index_dir).exists() ) {
+   //     log.info ">>> Índice já existe em ${params.index_dir}, pulando etapa INDEX_GENOME"
+   // }else {
+   //     log.info ">>> Criando indice ${params.index_dir}..."
+    //}
+>>>>>>> d7b76a8df65a8d7cb5d83e873ecd4eb2d67a6b24

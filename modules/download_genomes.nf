@@ -27,7 +27,7 @@ process DOWNLOAD_GENOMES {
         --no-cache \\
         --output-folder genomes \\
         ${taxid_opt} \\
-        ${group}
+        ${group} --no-cache
 
     echo "${task.process}:
         ncbigenomedownload: \$(ncbi-genome-download --version)" > versions.yml
