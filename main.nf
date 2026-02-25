@@ -17,7 +17,7 @@ params.group      = params.group      ?: "viral"
 params.index_name = params.index_name ?: "viral_index"
 params.index_dir  = "${params.outdir}/index/${params.index_name}"
 //params.reads      = params.reads      ?: "/home/icastro/workspace/mock/plant_viral_mock.fastq"
-params.reads_dir = params.reads_dir ?: "/home/icastro/workspace/simulated_reads"
+params.reads_dir = params.reads_dir ?: null
 params.breadth_threshold = params.breadth_threshold ?: 0.1
 
 
